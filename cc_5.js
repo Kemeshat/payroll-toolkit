@@ -44,4 +44,20 @@ function processPayroll(employee) {
     netPay: `$${netPay.toFixed(2)}`
   };
 }
-console.log(processPayroll(employees[1]));
+
+//Step 7: Log Payroll Information
+employees.forEach(employee => {
+  const payroll = processPayroll(employee);
+
+  console.log("%c====================================", "color: gray;");
+  console.log("%cPayroll Report for " + payroll.name, 
+              "font-weight: bold; font-size: 15px; color: blue;");
+  console.log("%c====================================", "color: gray;");
+
+  console.log("Base Pay:      ", payroll.basePay);
+  console.log("Overtime Pay:  ", payroll.overtimePay);
+  console.log("Gross Pay:     ", payroll.grossPay);
+  console.log("Net Pay:       ", payroll.netPay);
+
+  console.log("\n"); 
+});
