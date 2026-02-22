@@ -28,4 +28,20 @@ function calculateTaxes(grossPay) {
 }
  console.log("Taxes: $", calculateTaxes(1000).toFixed(2));
 
+//Step 6: Process Payroll
+function processPayroll(employee) {
+  const basePay = calculateBasePay(employee.hourlyRate, employee.hoursWorked);
+  const overtimePay = calculateOvertimePay(employee.hourlyRate, employee.hoursWorked);
+  const grossPay = basePay + overtimePay;
+  const taxes = calculateTaxes(grossPay);
+  const netPay = grossPay - taxes;
 
+  return {
+    name: employee.name,
+    basePay: `$${basePay.toFixed(2)}`,
+    overtimePay: `$${overtimePay.toFixed(2)}`,
+    grossPay: `$${grossPay.toFixed(2)}`,
+    netPay: `$${netPay.toFixed(2)}`
+  };
+}
+console.log(processPayroll(employees[1]));
