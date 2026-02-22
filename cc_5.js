@@ -13,6 +13,7 @@ function calculateBasePay(rate, hours) {
     const regularHours = Math.min(hours, 40);
     return rate * regularHours;         
 }
+
 //Step 4: Calculate Overtime Pay
 function calculateOvertimePay(rate, hours) {
     if (hours > 40) {
@@ -21,3 +22,10 @@ function calculateOvertimePay(rate, hours) {
     }
     return 0;
 }
+//Step 5: Calculate taxes
+function calculateTaxes(grossPay) {
+    return grossPay * 0.15;
+}
+ console.log("Taxes: $", calculateTaxes(1000).toFixed(2));
+
+
